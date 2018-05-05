@@ -1,0 +1,1390 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>BSM Agent site</title>
+        <meta name="description" content="Bsm agent web site">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.css">
+
+        <style>
+            #map {
+                height: 250px;
+                width: 100%;
+            }
+        </style>
+
+        <style type="text/css">
+
+            .hidden.menu {
+                display: none;
+            }
+
+            .masthead.segment {
+                min-height: 700px;
+                padding: 1em 0em;
+            }
+            .masthead .logo.item img {
+                margin-right: 1em;
+            }
+            .masthead .ui.menu .ui.button {
+                margin-left: 0.5em;
+            }
+            .masthead h1.ui.header {
+                margin-top: 3em;
+                margin-bottom: 0em;
+                font-size: 4em;
+                font-weight: normal;
+            }
+            .masthead h2 {
+                font-size: 1.7em;
+                font-weight: normal;
+            }
+
+            .ui.vertical.stripe {
+                padding: 8em 0em;
+            }
+            .ui.vertical.stripe h3 {
+                font-size: 2em;
+            }
+            .ui.vertical.stripe .button + h3,
+            .ui.vertical.stripe p + h3 {
+                margin-top: 3em;
+            }
+            .ui.vertical.stripe .floated.image {
+                clear: both;
+            }
+            .ui.vertical.stripe p {
+                font-size: 1.33em;
+            }
+            .ui.vertical.stripe .horizontal.divider {
+                margin: 3em 0em;
+            }
+
+            .quote.stripe.segment {
+                padding: 0em;
+            }
+            .quote.stripe.segment .grid .column {
+                padding-top: 5em;
+                padding-bottom: 5em;
+            }
+
+            .footer.segment {
+                padding: 5em 0em;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: none;
+            }
+
+            .imgResize{
+                width: 100px;
+                height: 100px;
+            }
+
+            @media only screen and (max-width: 700px) {
+                .ui.fixed.menu {
+                    display: none !important;
+                }
+                .secondary.pointing.menu .item,
+                .secondary.pointing.menu .menu {
+                    display: none;
+                }
+                .secondary.pointing.menu .toc.item {
+                    display: block;
+                }
+                .masthead.segment {
+                    min-height: 350px;
+                }
+                .masthead h1.ui.header {
+                    font-size: 2em;
+                    margin-top: 1.5em;
+                }
+                .masthead h2 {
+                    margin-top: 0.5em;
+                    font-size: 1.5em;
+                }
+            }
+/*
+            #carousel {
+                position: relative;
+                width:60%;
+                margin:0 auto;
+            }
+*/
+            #slides {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
+                height: 250px;
+            }
+
+            #slides ul {
+                list-style: none;
+                width:100%;
+                height:250px;
+                margin: 0;
+                padding: 0;
+                position: relative;
+            }
+
+            #slides li {
+                width:100%;
+                height:250px;
+                float:left;
+                text-align: center;
+                position: relative;
+                font-family:lato, sans-serif;
+            }
+            /* Styling for prev and next buttons */
+            .btn-bar{
+                max-width: 346px;
+                margin: 0 auto;
+                display: block;
+                position: relative;
+                top: 40px;
+                width: 100%;
+            }
+
+            #buttons {
+                padding:0 0 5px 0;
+                float:right;
+            }
+
+            #buttons a {
+                text-align:center;
+                display:block;
+                font-size:30px;
+                float:left;
+                outline:0;
+                margin:0 60px;
+                color:#0f0f10;
+                text-decoration:none;
+                padding:0 30px 30px 0;
+                width:35px;
+            }
+            a#prev:hover, a#next:hover {
+                color:#FFF;
+                text-shadow:.5px 0px #b14943;
+            }
+
+            .quote-phrase, .quote-author {
+                font-weight:300;
+                display: table-cell;
+                vertical-align: middle;
+                padding: 5px 20px;
+                font-family:'Lato', Calibri, Arial, sans-serif;
+            }
+
+            .quote-phrase {
+                height: 200px;
+                font-size:24px;
+                color:#0f0f10;
+                font-style:italic;
+                text-shadow:.5px 0px #0f0f10;
+            }
+
+            .quote-marks {
+                font-size:30px;
+                padding:0 3px 3px;
+                position:inherit;
+            }
+
+            .quote-author {
+                font-style:normal;
+                font-size:20px;
+                color:#0f0f10;
+                font-weight:400;
+                height: 30px;
+            }
+
+            .quoteContainer, .authorContainer {
+                display: table;
+                width: 100%;
+            }
+
+
+        </style>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="semantic/dist/components/visibility.js"></script>
+        <script src="semantic/dist/components/sidebar.js"></script>
+        <script src="semantic/dist/components/transition.js"></script>
+        <script src="semantic/dist/components/shape.js"></script>
+        <script src="semantic/dist/components/dropdown.js"></script>
+        <script src="semantic/dist/components/modal.js"></script>
+        <script src="semantic/dist/components/dimmer.js"></script>
+        <script src="semantic/dist/components/embed.js"></script>
+
+
+
+        <script>
+            $(document)
+                .ready(function() {
+
+                // fix menu when passed
+                $('.masthead')
+                    .visibility({
+                        once: false,
+                        onBottomPassed: function () {
+                            $('.fixed.menu').transition('fade in');
+                        },
+                        onBottomPassedReverse: function () {
+                            $('.fixed.menu').transition('fade out');
+                        }
+                    })
+                ;
+
+                // create sidebar and attach to menu open
+                $('.ui.sidebar')
+                    .sidebar('attach events', '.toc.item')
+                ;
+
+                $('.ui.menu .ui.dropdown').dropdown({
+                    on: 'hover'
+                });
+                $('.ui.menu a.item')
+                    .on('click', function() {
+                        $(this)
+                            .addClass('active')
+                            .siblings()
+                            .removeClass('active')
+                        ;
+                    })
+                ;
+
+                $( '.ui.huge.inverted.button' ).on('click', function() {
+                    $('.coupled.modal')
+                        .modal({
+                            allowMultiple: false
+                        })
+                    ;
+
+                    // attach events to buttons
+                    $('.second.modal')
+                        .modal('attach events', '.first.modal .button')
+                    ;
+                    // show first now
+                    $('.first.modal')
+                        .modal('show')
+                    ;
+                });
+
+                $(' .ui.embed').embed();
+
+                $('#numPlayers').on('click', function(){
+                    $('#divPlayers').transition('fly right');
+                });
+
+                $('#numCoach').on('click', function(){
+                    $('#divCoach').transition('fly left')
+                    ;
+                });
+                $('ui.text.shape')
+                    .shape('set next side', '.second.side')
+                    .shape('flip up')
+                ;
+
+
+
+
+                //rotation speed and timer
+                var speed = 5000;
+
+                var run = setInterval(rotate, speed);
+                var slides = $('.slide');
+                var container = $('#slides ul');
+                var elm = container.find(':first-child').prop("tagName");
+                var item_width = container.width();
+                var previous = 'prev'; //id of previous button
+                var next = 'next'; //id of next button
+                slides.width(item_width); //set the slides to the correct pixel width
+                container.parent().width(item_width);
+                container.width(slides.length * item_width); //set the slides container to the correct total width
+                container.find(elm + ':first').before(container.find(elm + ':last'));
+                resetSlides();
+
+
+                //if user clicked on prev button
+
+                $('#buttons a').click(function (e) {
+                    //slide the item
+
+                    if (container.is(':animated')) {
+                        return false;
+                    }
+                    if (e.target.id === previous) {
+                        container.stop().animate({
+                            'left': 0
+                        }, 1500, function () {
+                            container.find(elm + ':first').before(container.find(elm + ':last'));
+                            resetSlides();
+                        });
+                    }
+
+                    if (e.target.id === next) {
+                        container.stop().animate({
+                            'left': item_width * -2
+                        }, 1500, function () {
+                            container.find(elm + ':last').after(container.find(elm + ':first'));
+                            resetSlides();
+                        });
+                    }
+
+                    //cancel the link behavior
+                    return false;
+
+                });
+
+                //if mouse hover, pause the auto rotation, otherwise rotate it
+                container.parent().mouseenter(function () {
+                    clearInterval(run);
+                }).mouseleave(function () {
+                    run = setInterval(rotate, speed);
+                });
+
+
+                function resetSlides() {
+                    //and adjust the container so current is in the frame
+                    container.css({
+                        'left': -1 * item_width
+                    });
+                }
+                //a simple function to click next link
+                //a timer will call this function, and the rotation will begin
+
+                function rotate() {
+                    $('#next').click();
+                }
+/*
+                $('#followingMenu').on('click', function(event) {
+                    $(this).parent().find('a').removeClass('active');
+                    $(this).addClass('active');
+                });
+*/
+/*
+                    $(window).on('scroll', function() {
+                        $('.scrolling').each(function() {
+                            if($(window).scrollTop() >= $(this).offset().top) {
+                                $('#followingMenu').removeClass('active');
+                                $('#followingMenu div a[href=#'+ $(this).attr('id') +']').addClass('active');
+                            }
+                        });
+                    });*/
+
+                    $('.scrolling').visibility({
+                        /*
+                        onOnScreen: function(calculations){
+                            var id = $(this).attr("id");
+                            $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
+                        },*/
+
+
+                        onOnScreen: function (calculations) {
+                            $('#followingMenu div a').removeClass('active');
+                            var id = $(this).attr("id");
+                            $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
+
+                        }
+
+                    });
+            });
+
+            $(window).on('scroll', function() {
+
+                $('.scrolling').visibility({
+                    /*
+                    onOnScreen: function(calculations){
+                        var id = $(this).attr("id");
+                        $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
+                    },*/
+
+
+                    onOnScreen: function (calculations) {
+                        $('#followingMenu div a').removeClass('active');
+                        var id = $(this).attr("id");
+                        $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
+
+                    }
+
+                });
+            });
+
+
+        </script>
+    </head>
+    <body>
+
+        <!-- Following Menu -->
+        <div id="followingMenu" class="ui large top fixed hidden menu">
+            <div class="ui container">
+                <a href="#home" class="active item follow">Home</a>
+                <a href="#company" class="item follow">Company</a>
+                <a href="#agents" class="item follow">Agents</a>
+                <a href="#statistics" class="item follow">Statistics</a>
+                <a class="item follow" href="#scoutingArea" style="color:black">Scouting Area</a>
+                <!--<a href="#players" class="item">Players</a>
+                <a href="#coach" class="item">Coach</a>-->
+                <a class="item follow" href="#services" style="color:black">Services</a>
+                <a class="item follow" href="#events" style="color:black">Events</a>
+                <a href="#news" class="item follow">News</a>
+                <a href="#partners" class="item follow">Partners</a>
+                <a href="#about" class="item follow">About Us</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <div class="ui vertical inverted sidebar menu">
+            <a href="#home" class="active item">Home</a>
+            <a href="#company" class="item">Company</a>
+            <a href="#agents" class="item">Agents</a>
+            <a href="#statistics" class="item">Statistics</a>
+            <a class="item" href="#scoutingArea" style="color:black">Scouting Area</a>
+            <!--<a href="#players" class="item">Players</a>
+            <a href="#coach" class="item">Coach</a>-->
+            <a class="item" href="#services" style="color:black">Services</a>
+            <a class="item" href="#events" style="color:black">Events</a>
+            <a href="#news" class="item">News</a>
+            <a href="#partners" class="item">Partners</a>
+            <a href="#about" class="item">About Us</a>
+        </div>
+
+        <div class="ui first coupled modal">
+            <div class="header">
+                Do you want to join us?
+            </div>
+            <div class="image content">
+                <div class="image">
+                    <i class="right arrow icon"></i>
+                </div>
+                <div class="description">
+                    <p>Are you a coach or a players that bla bla bla bla bla bla bla bla</p>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui primary button">Proceed</div>
+            </div>
+        </div>
+        <div class="ui small second coupled modal">
+            <div class="header">
+                Contact us!!
+            </div>
+            <div class="content">
+                <div class="description">
+                    <p>Bla bal bal sifaoinf caffio davide stato ha commentato il suo stuto!</p>
+                </div>
+            </div>
+            <div class="actions">
+                <div class="ui approve button">
+                    <i class="checkmark icon"></i>
+                    All Done
+                </div>
+            </div>
+        </div>
+
+        <div class="pusher">
+
+            <div id="home" class="ui inverted vertical masthead center aligned segment">
+                 <div class="ui container">
+                    <div class="ui large secondary inverted pointing menu">
+                        <a class="toc item">
+                            <i class="sidebar icon"></i>
+                        </a>
+                        <a href="#home" class="active item">Home</a>
+                        <a href="#company" class="item">Company</a>
+                        <a href="#agents" class="item">Agents</a>
+                        <div class="ui dropdown item">
+                            Intermediary
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="#statistics" style="color:black">Players</a>
+                                <a class="item" href="#statistics" style="color:black">Coach</a>
+                            </div>
+                        </div>
+                        <a class="item" href="#scoutingArea" style="color:black">Scouting Area</a>
+                        <a href="#services" class="item">Services</a>
+                        <div class="ui dropdown item">
+                            News
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="#news" style="color:black">Our News</a>
+                                <a class="item" href="#events" style="color:black">Events</a>
+                            </div>
+                        </div>
+                        <a href="#partners" class="item">Partners</a>
+                        <a href="#about" class="item">About Us</a>
+                        <div class="item">
+                            <a href="#" ><i class="flag gb"></i></a>
+                        </div>
+                        <div class="item">
+                            <a href="#" ><i class="flag it"></i></a>
+                        </div>
+                        <!--<a href="#statistic" class="item">Statistics</a>
+                        <a href="#players" class="item">Players</a>
+                        <a href="#coach" class="item">Coach</a>-->
+                        <div class="right item">
+                            <a href="https://www.facebook.com/bsmitalianagentBaronchelliStutoMarraffa/">
+                                <button class="ui facebook button">
+                                    <i class="facebook icon"></i>
+                                    Facebook
+                                </button>
+                            </a>
+                            <!--<button class="ui twitter button">
+                                <i class="twitter icon"></i>
+                                Twitter
+                            </button>-->
+                        </div>
+                    </div>
+                 </div>
+
+                <div class="ui text ">
+                    <h1 class="ui inverted header">Best Soccer Management</h1>
+                    <h2 class="ui inverted header">Imagine an Agency</h2>
+                    <h3>That can realize your dreams</h3>
+                    <button class="ui huge inverted button" ><i class="gem outline icon"></i> Get Started   <i class="futbol icon"></i></button>
+                </div>
+            </div>
+
+            <br >
+            <br >
+
+
+            <div id="company" class="ui vertical stripe segment scrolling">
+                <div class="ui text container">
+                    <h3 class="ui header">The Firm</h3>
+                        <p>The firm was created due to our passion for football but specially to offer a new concept
+                            related to football agents, who are too often not well seen. We, as footballers, have had
+                            bad experiences with our agents as well. These have had a significant negative impact on our careers.
+                        </p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">What we Focus</a>
+                    </h4>
+                    <h3 class="ui header">Our mission</h3>
+                        <p>B.S.M want to be focused on acting well for the well-being of our clients. This comes before
+                            our personal interests, to avoid making the same mistakes that have killed our dreams in the past.
+                        </p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">How we Work</a>
+                    </h4>
+                    <h3 class="ui header">Our work is also our greatest passion</h3>
+                        <p>Our way of working is based on being constantly present at football grounds and pitches.
+                            We want to meet the players as this step is pivotal to understand their needs and offer them
+                            a tailored service and make the most of our time and roles. We also built a strong network that
+                            brought us talent scouts in different countries such as Italy (whole country) Canada, Brazil, Cameron
+                            and Uganda, other than other contacts in Europe
+                        </p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">About Clients</a>
+                    </h4>
+                    <h3 class="ui header">Who are our clients</h3>
+                        <p>Among our clients there are players who play in some of the best youth teams in Italy. Some of them,
+                            decided to be managed by B.S.M when they were already playing for professional teams. Others, instead,
+                            were playing in local teams and have been brought to the next level thanks to our passion and dedication.
+                            We scouted them, helped them to understand what their ambitions were and supported when hard time arose by being
+                            available for them whenever they needed us.
+                        </p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">Ethics</a>
+                    </h4>
+                    <h3 class="ui header">Who we are looking for</h3>
+                        <p>At B.S.M are strict about players behaviour and attitude. To become part of our family, players, managers
+                            and partners must show respect, manners and politeness towards rivals, agents, teams and to the role they have.
+                            A player who does not succeed in showing these value simply cannot be part of B.S.M, no matter who he is or who he may become.
+                        </p>
+                </div>
+            </div>
+
+            <div id="agents" class="ui vertical stripe quote segment scrolling">
+                <br>
+                <br>
+                <h1 align="center">Agents</h1>
+                <br>
+                <div class="ui equal width stackable internally celled grid centered" >
+                    <div class="ui link cards ">
+                        <div class="card">
+                            <div class="image">
+                                <img src="images/Agents/Gianluigi_Marraffa.jpg" alt="Gianluigi Marraffa">
+                            </div>
+                            <div class="content">
+                                <div class="header">Gianluigi Marraffa</div>
+                                <div class="meta">
+                                    <a>Agent</a>
+                                </div>
+                                <div class="description">
+                                    Born in July 1983. Former professional player for U.C. Sampdoria and some different teams in the Italian 3rd Division. I have also collected some caps for Italy’s Youth National team. I am a professional football agent (FIGC N˚:0986). In B.S.M I oversee transfers and consultancies for players both in Italy and abroad.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="images/Agents/Davide_Stuto.jpg" alt="Davide Stuto">
+                            </div>
+                            <div class="content">
+                                <div class="header">Davide Stuto</div>
+                                <div class="meta">
+                                    <a>Agent</a>
+                                </div>
+                                <div class="description">
+                                    born in December 1989 in Genoa (Italy). I have played football until 2 years ago, when I quit to be completely involved in this project. I played in C.F.C Genoa (Serie A) until the so-called “Primavera”, the equivalent of a British “Team B”. My role in B.S.M is about looking after our foreign partners with the aim to maintain solid relationships other than developing new ones. The main objective of this is build bridges between people with the same passion and reinforce each other’s’ brands other than work together to offer a better service to players.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="images/Agents/Alessio_Baronchelli.jpg" alt="Alessio Baronchelli">
+                            </div>
+                            <div class="content">
+                                <div class="header">Alessio Baronchelli</div>
+                                <div class="meta">
+                                    <a>Agent</a>
+                                </div>
+                                <div class="description">
+                                    Born in 1983. Former professional players with some caps in the Italian 3rd Division. In B.S.M my role is related to the financial management of the firm’s budget and profit as well as players’ salaries. Moreover, I am actively involved in the negotiations and the football management side.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="image">
+                                <img src="images/Agents/Gianmarco_Ceresa.jpg" alt="Gianmarco Ceresa">
+                            </div>
+                            <div class="content">
+                                <div class="header">Gianmarco Ceresa</div>
+                                <div class="meta">
+                                    <a>Social Media Marketing and communication executive</a>
+                                </div>
+                                <div class="description">
+                                    born in 1990 in Turin. Expert in International Marketing and Communication. I have achieved a Master at the University of Surrey (Grade: Distinction) and I have previous experience in Administration and Direct and Digital Marketing for a financial corporation in London. In B.S.M I am looking after the marketing plan for an Italian Serie A clubs that wants to expand to China. On top of that, I manage the social media page and look after relationships in the UK.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <br>
+            </div>
+
+            <div id="statistics"  class="ui vertical stripe quote segment scrolling" style="height: 50%;width: 50%; margin: auto">
+                <br>
+                <br>
+                <br>
+                <h1 align="center">Statistics</h1>
+                <h4 align="center">BSM in numbers:</h4>
+                <div class="ui center aligned basic segment" style="margin: auto">
+                    <div class="ui statistics" style="margin: auto">
+                        <div id="numPlayers" class="green statistic" data-tooltip="Click here to see all our players" data-position="left center" style="margin: auto">
+                            <div class="value">
+                                24
+                            </div>
+                            <div class="label">
+                                Players
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui horizontal divider">
+                        And
+                    </div>
+                    <div class="ui statistics" style="margin: auto">
+                        <div id="numCoach" class="green statistic" data-tooltip="Click here to see all our coach" data-position="left center" style="margin: auto">
+                            <div class="value">
+                                1
+                            </div>
+                            <div class="label">
+                                Coach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>Touch the statistic to see details!!</h4>
+            </div>
+
+            <div id="divPlayers" class="ui vertical stripe quote segment hidden " >
+                <br>
+                <h1 align="center">Players</h1>
+                <br>
+
+                <div id="players" class="ui divided items " style="margin-left: 15%; margin-right: 15%">
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Alessandro_Donato.jpg" alt="Alessandro Donato">
+                        </div>
+                        <div class="content">
+                        <a class="header">Alessandro Donato</a>
+                        <div class="meta">
+                            <span class="cinema">U.C. Sampdoria</span>
+                        </div>
+                        <div class="description">
+                            <p>Football Striker, 2003 class</p>
+                        </div>
+                            <div class="extra">
+                                <div class="ui label"><i class="futbol icon"></i> Striker</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Alessandro_Ghiglia.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Alessandro Ghiglia</a>
+                            <div class="meta">
+                                <span class="cinema">U.S. Triestina</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Alessandro_Orchi.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Alessandro Orchi</a>
+                            <div class="meta">
+                                <span class="cinema">Bustese Milano City</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Alessandro_Rogora.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Alessandro Rogora</a>
+                            <div class="meta">
+                                <span class="cinema">Gozzano</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Alessio_Arcidiacono.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Alessio Arcidiacono</a>
+                            <div class="meta">
+                                <span class="cinema">U.S. Triestina</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Andrea_Gallo.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Andrea Gallo</a>
+                            <div class="meta">
+                                <span class="cinema">Finale</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Andrea_Tracanna.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Andrea Tracanna</a>
+                            <div class="meta">
+                                <span class="cinema">U.S. Sanbenedettese</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Antonio_DiPietro.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Antonio Di Pietro</a>
+                            <div class="meta">
+                                <span class="cinema">U.S.D. Lavagnese 1909</span>
+                            </div>
+                            <div class="description">
+                                <p>Offensive Midflieder, 1997 class</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label"><i class="futbol icon"></i>OMF</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Antonio_Stellitano.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Antonio Stellitano</a>
+                            <div class="meta">
+                                <span class="cinema">FK Nevezis</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Baldizzone.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Baldizzone</a>
+                            <div class="meta">
+                                <span class="cinema">IFC</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Christian_Nani.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Christian Nani</a>
+                            <div class="meta">
+                                <span class="cinema">U.S. Alessandria</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Denis_Pasquino.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Denis Pasquino</a>
+                            <div class="meta">
+                                <span class="cinema">Albissola</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Elias_Spaltro.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Elis Spaltro</a>
+                            <div class="meta">
+                                <span class="cinema">F.B.C. Savona</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Federico_Aquino.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Federico Aquino</a>
+                            <div class="meta">
+                                <span class="cinema">Catania</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Federico_Brusacà.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Federico Brusacà</a>
+                            <div class="meta">
+                                <span class="cinema">SWQ Thunder Fc</span>
+                            </div>
+                            <div class="description">
+                                <p>Central Back, 1996 class</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label"><i class="futbol icon"></i>CB</div>
+                                <div class="ui label"><i class="futbol icon"></i>Australian League</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Filippo_Scalea.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Filippo Scalea</a>
+                            <div class="meta">
+                                <span class="cinema">Pro Piacenza</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Gianmarco_Cito.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Gianmarco Cito</a>
+                            <div class="meta">
+                                <span class="cinema">Real Forte Querceta</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Guido_Bennati.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Guido Bennati</a>
+                            <div class="meta">
+                                <span class="cinema">Albissola</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Leonardo_Renner.jpeg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Leonardo Renner</a>
+                            <div class="meta">
+                                <span class="cinema">S.C Internacional  1909</span>
+                            </div>
+                            <div class="description">
+                                <p>Goalkeeper, 1999 class</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label"><i class="futbol icon"></i>GK</div>
+                                <div class="ui label"><i class="futbol icon"></i>Campeonato Brasileiro Série A</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Lorenzo_Pietanesi.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Lorenzo Pietanesi</a>
+                            <div class="meta">
+                                <span class="cinema">U.S. Pistoiese</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Marco_Ventura.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Marco Ventura</a>
+                            <div class="meta">
+                                <span class="cinema">U.S.D Lavagnese 1919</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Martino_Daniele.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Martino Daniele</a>
+                            <div class="meta">
+                                <span class="cinema">U.S.D Lavagnese 1919</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/Massimiliano_Tabbi.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Massimiliano Tabbi</a>
+                            <div class="meta">
+                                <span class="cinema">FK Nevezis</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Players/PauloDelBianco.jpg">
+                        </div>
+                        <div class="content">
+                            <a class="header">Paulo Del Bianco</a>
+                            <div class="meta">
+                                <span class="cinema">Hellas Verona</span>
+                            </div>
+                            <div class="description">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="divCoach" class="ui vertical stripe quote segment hidden ">
+                <br>
+                <h1  align="center">Coach</h1>
+                <br>
+                <div class="ui divided items" style="margin-left: 15%; margin-right: 15%">
+                    <div class="item">
+                        <div class="image">
+                            <img src="images/Coach/Gabriele_Gervasi_mister.jpg"  alt="Gabriele Gervasi" style="height: 70%; width: 100%">
+                        </div>
+                        <div class="content">
+                            <a class="header">Gabriele Gervasi</a>
+                            <div class="meta">
+                                <span class="cinema">Jiangsu Suning Football Club</span>
+                            </div>
+                            <div class="description">
+                                <p>Coach of the Jiangsu Suning U15 sector.</p>
+                            </div>
+                            <div class="extra">
+                                <div class="ui label"><i class="futbol icon"></i>Coach</div>
+                                <div class="ui label"><i class="futbol icon"></i>youth sector</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="scoutingArea" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
+                <h1 align="center">Scouting Area</h1>
+                <br>
+                <div class="ui cards">
+                    <div class="card">
+                        <div class="content">
+                            <div class="header">Luciano Mendez</div>
+                            <div class="meta">Scout</div>
+                            <div class="description">
+                                Luciano Mendez is the scout manager for the South America area
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="header">Roger Knem</div>
+                            <div class="meta">Scout</div>
+                            <div class="description">
+                                Roger Knem is the scout manager for the South Africa area.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="header">Join Us!!</div>
+                            <div class="meta">Scout</div>
+                            <div class="description">
+                                <a href="#about">Do you want to become a scout? Contact us!!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="services" class="ui vertical stripe segment scrolling" >
+                <div class="ui text container">
+                    <h3 align="center">Services</h3>
+                </div>
+                <br>
+                <div class="ui text container">
+                    <h2 class="ui header">Social Insurance Support</h2>
+                    <p>B.S.M relies on external consultants to manage all that regarding the Social Insurance of own athletes.</p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">Tax Authorities</a>
+                    </h4>
+                    <h2 class="ui header">Fiscal Support</h2>
+                    <p>We relies on external consultants to manage thee TAX AREA of own athletes including investments.</p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">Legal Business</a>
+                    </h4>
+                    <h2 class="ui header">Legal Support</h2>
+                    <p>Using the collaboration of the law firm Lo Cigno, B.S.M. offers legal advice to its clients.</p>
+                    <h4 class="ui horizontal header divider">
+                        <a href="#">Imagine Management</a>
+                    </h4>
+                    <h2 class="ui header">Marketing & Digital PR</h2>
+                    <p>Having a professional of the sector within us, B.S.M. develops a series of initiatives fitting the acquisition of the image of their owners through the management of social profile, the creation of internet sites and the search for new sponsors</p>
+                </div>
+            </div>
+
+            <div id="events" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
+                <h1 align="center">Events</h1>
+                <div class="ui two column grid">
+                    <div class="column">
+                        <div class="ui raised segment">
+                            <a class="ui red ribbon label">Courses</a>
+                            <span>Sports Procurator courses</span>
+                            <p>The next course...</p>
+                            <a class="ui red ribbon label">Courses</a>
+                            <span>Sport Observer Courses</span>
+                            <p>The next course...</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="ui segment">
+                            <a class="ui blue right ribbon label">Stage</a>
+                            <span>Players stage</span>
+                            <p>Players stage...</p>
+                            <a class="ui green right ribbon label">Other Events</a>
+                            <span>Other B.S.M. Events</span>
+                            <p>Other Events...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="news" class="ui vertical stripe segment scrolling" style="margin-left: 20%;margin-right: 20%">
+                <h1 align="center">News</h1>
+                <div id="carousel">
+                    <div class="btn-bar">
+                        <div id="buttons"><a id="prev" href="#"><</a><a id="next" href="#">></a>
+                        </div>
+                    </div>
+                    <div id="slides">
+                        <ul>
+                            <li class="slide">
+                                <div class="quoteContainer">
+                                    <p class="quote-phrase"><span class="quote-marks">"</span> I was literally BLOWN AWAY by Company A's work! They went above and beyond all of our expectations with design, usability. and branding, I will reccommend them to everyone I know!<span class="quote-marks">"</span>
+
+                                    </p>
+                                </div>
+                                <div class="authorContainer">
+                                    <p class="quote-author">John Doe // Local Business Owner</p>
+                                </div>
+                            </li>
+                            <li class="slide">
+                                <div class="quoteContainer">
+                                    <p class="quote-phrase"><span class="quote-marks">"</span>
+                                        I could not stop staring! Company A's Web Solutions are by far the most elegant solutions, you can't beat their quality and attention to detail!
+                                        <span class="quote-marks">"</span>
+
+                                    </p>
+                                </div>
+                                <div class="authorContainer">
+                                    <p class="quote-author">Andy Fakename // CEO: Andy's Camping Supplies</p>
+                                </div>
+                            </li>
+                            <li class="slide">
+                                <div class="quoteContainer">
+                                    <p class="quote-phrase"><span class="quote-marks">"</span>Carl Fakeguy, was the most helpful designer I've ever hired. He listened to my ideas and advised against things that could negatively affect my CEO. Company A is by far the most generous and helpful company, 5/5!<span class="quote-marks">"</span>
+
+                                    </p>
+                                </div>
+                                <div class="authorContainer">
+                                    <p class="quote-author">Janice Falsename</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="partners" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
+                <h1 align="center">Partners</h1>
+                <div class="ui link cards">
+                    <div class="ui card">
+                        <a class="image" href="http://gallacticos.co.uk/">
+                            <img src="images/Partners/gallacticos.jpg" >
+                        </a>
+                        <div class="content">
+                            <a class="header" href="http://gallacticos.co.uk/">Gallacticos Personal Promotion Ltd</a>
+                            <div class="meta">
+                                <a> UK Partner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui card">
+                        <a class="image" href="http://www.calcioprofiler.it/">
+                            <img src="images/Partners/pippo.svg" >
+                        </a>
+                        <div class="content">
+                            <a class="header" href="http://www.calcioprofiler.it/">Calcio Profiler</a>
+                            <div class="meta">
+                                <a>IT Partner</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui card">
+                        <a class="image" href="http://www.calcioprofiler.it/">
+                            <img src="images/Agents/Davide_Stuto.jpg" >
+                        </a>
+                        <div class="content">
+                            <a class="header" href="#">Join Us!!</a>
+                            <div class="meta">
+                                <a>Partner</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div id="about" class="ui vertical stripe quote segment scrolling" style="margin-left: 20%; margin-right: 20%">
+                <h1 align="center">About Us</h1>
+                <div class="ui equal width stackable internally grid">
+                    <div class="center aligned row">
+                        <div class="column">
+                            <h3> Where to find us</h3>
+                            <div id="map"></div>
+                                <script>
+                                    function initMap() {
+                                        var uluru = {lat: 44.404177 , lng: 8.954745};
+                                        var map = new google.maps.Map(document.getElementById('map'), {
+                                            zoom: 15,
+                                            center: uluru
+                                        });
+                                        var marker = new google.maps.Marker({
+                                            position: uluru,
+                                            map: map
+                                        });
+                                    }
+                                </script>
+                                <script async defer
+                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3AqCUHMphJyX6gBzqbFdlBxut_XIIQc&callback=initMap">
+                                </script>
+                        </div>
+                        <div class=" left aligned column">
+                            <h3>Contact Us</h3>
+                            <br>
+                            <div class="ui list">
+                                <div class="item">
+                                    <i class="users icon"></i>
+                                    <div class="content">
+                                        Davide Stuto <i class="mobile alternate icon"></i> 0123456789
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="users icon"></i>
+                                    <div class="content">
+                                        Gianluigi Marraffa <i class="mobile alternate icon"></i> 0123456789
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="users icon"></i>
+                                    <div class="content">
+                                        Gianmarco Ceresa    <i class="mobile alternate icon"></i> 0123456789
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="users icon"></i>
+                                    <div class="content">
+                                        Alessio Baronchelli <i class="mobile alternate icon"></i> 0123456789
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="phone icon"></i>
+                                    <div class="content">
+                                        01234567898
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="marker icon"></i>
+                                    <div class="content">
+                                        Via Caffa 11, Genova
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <i class="mail icon"></i>
+                                    <div class="content">
+                                        <a href="mailto:bsm.italianagent@gmail.com">bsm.italianagent@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--
+                <h2 class="center">Where to find us</h2>
+                <div class="ui centered" id="map"></div>
+                <script>
+                    function initMap() {
+                        var uluru = {lat: 44.404177 , lng: 8.954745};
+                        var map = new google.maps.Map(document.getElementById('map'), {
+                            zoom: 15,
+                            center: uluru
+                        });
+                        var marker = new google.maps.Marker({
+                            position: uluru,
+                            map: map
+                        });
+                    }
+                </script>
+                <script async defer
+                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3AqCUHMphJyX6gBzqbFdlBxut_XIIQc&callback=initMap">
+                </script>
+            </div>-->
+
+
+            <div class="ui inverted vertical footer segment">
+                <div class="ui container">
+                    <div class="ui stackable inverted divided equal height stackable grid">
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">About</h4>
+                            <div class="ui inverted link list">
+                                <a href="#about" class="item">Contact Us</a>
+                                <a href="#map" class="item">How To find us</a>
+                            </div>
+                        </div>
+                        <div class="three wide column">
+                            <h4 class="ui inverted header">Services</h4>
+                            <div class="ui inverted link list">
+                                <a href="#players" class="item">Players</a>
+                                <a href="#agents" class="item">Agent</a>
+                                <a href="#coach" class="item">Coach</a>
+                            </div>
+                        </div>
+                        <div class="seven wide column">
+                            <h4 class="ui inverted header">Company information</h4>
+                            <p>Genova, via Caffa 11. Telefono 0123456789 P.IVA 012455686561</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
