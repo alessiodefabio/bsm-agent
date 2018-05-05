@@ -371,29 +371,29 @@
                 });
 */
 /*
-                    $(window).on('scroll', function() {
-                        $('.scrolling').each(function() {
-                            if($(window).scrollTop() >= $(this).offset().top) {
-                                $('#followingMenu').removeClass('active');
-                                $('#followingMenu div a[href=#'+ $(this).attr('id') +']').addClass('active');
-                            }
-                        });
-                    });*/
-
-                    $('.scrolling').visibility({
-                        /*
-                        onOnScreen: function(calculations){
-                            var id = $(this).attr("id");
-                            $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
-                        },*/
-
-
-                        onOnScreen: function (calculations) {
-                            $('#followingMenu div a').removeClass('active');
-                            var id = $(this).attr("id");
-                            $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
-
+                $(window).on('scroll', function() {
+                    $('.scrolling').each(function() {
+                        if($(window).scrollTop() >= $(this).offset().top) {
+                            $('#followingMenu').removeClass('active');
+                            $('#followingMenu div a[href=#'+ $(this).attr('id') +']').addClass('active');
                         }
+                    });
+                });*/
+
+                $('.scrolling').visibility({
+                    /*
+                    onOnScreen: function(calculations){
+                        var id = $(this).attr("id");
+                        $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
+                    },*/
+
+
+                    onOnScreen: function (calculations) {
+                        $('#followingMenu div a').removeClass('active');
+                        var id = $(this).attr("id");
+                        $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
+
+                    }
 
                     });
             });
@@ -426,8 +426,8 @@
         <!-- Following Menu -->
         <div id="followingMenu" class="ui large top fixed hidden menu">
             <div class="ui container">
-                <a href="#home" class="active item follow">Home</a>
-                <a href="#company" class="item follow">Company</a>
+                <a href="#home" class="active item follow" >Home</a>
+                <a href="#company" class="item follow"> Company</a>
                 <a href="#agents" class="item follow">Agents</a>
                 <a href="#statistics" class="item follow">Statistics</a>
                 <a class="item follow" href="#scoutingArea" style="color:black">Scouting Area</a>
@@ -442,7 +442,7 @@
         </div>
 
         <!-- Sidebar Menu -->
-        <div class="ui vertical inverted sidebar menu">
+        <div id="sideBar" class="ui vertical inverted sidebar menu">
             <a href="#home" class="active item">Home</a>
             <a href="#company" class="item">Company</a>
             <a class="item" href="#scoutingArea">Scouting Area</a>
@@ -600,7 +600,7 @@
                 </div>
             </div>
 
-            <div id="agents" class="ui vertical stripe quote segment scrolling">
+            <div id="agents" class="ui vertical stripe quote segment scrolling" style="margin-left: 8%; margin-right: 8%">
                 <br>
                 <br>
                 <h1 align="center">Agents</h1>
