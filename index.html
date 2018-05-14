@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="semantic/dist/components/dropdown.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <style>
             #map {
@@ -22,7 +23,7 @@
             }
         </style>
 
-        <style type="text/css">
+        <!--<style type="text/css">
 
             .hidden.menu {
                 display: none;
@@ -113,13 +114,14 @@
                     font-size: 1.5em;
                 }
             }
-/*
+
+            /*
             #carousel {
                 position: relative;
                 width:60%;
                 margin:0 auto;
             }
-*/
+            */
             #slides {
                 overflow: hidden;
                 position: relative;
@@ -144,36 +146,110 @@
                 position: relative;
                 font-family:lato, sans-serif;
             }
-            /* Styling for prev and next buttons */
-            .btn-bar{
-                max-width: 346px;
-                margin: 0 auto;
-                display: block;
-                position: relative;
-                top: 40px;
-                width: 100%;
+
+            @media only screen and (min-width: 700px) {
+                /* Styling for prev and next buttons */
+                .btn-bar {
+                    max-width: 346px;
+                    margin: 0 auto;
+                    display: block;
+                    position: relative;
+                    top: 40px;
+                    width: 100%;
+                }
+
+                #buttons {
+                    padding: 0 0 5px 0;
+                    float: right;
+                }
+
+                #buttons a {
+                    text-align: center;
+                    display: block;
+                    font-size: 30px;
+                    float: left;
+                    outline: 0;
+                    margin: 0 60px;
+                    color: #0f0f10;
+                    text-decoration: none;
+                    padding: 0 30px 30px 0;
+                    width: 35px;
+                }
+
+                a#prev:hover, a#next:hover {
+                    color: #FFF;
+                    text-shadow: .5px 0px #b14943;
+                }
             }
 
-            #buttons {
-                padding:0 0 5px 0;
-                float:right;
+            @media only screen and (min-width: 550px) {
+                /* Styling for prev and next buttons */
+                .btn-bar {
+                    max-width: 346px;
+                    margin: 0 auto;
+                    display: block;
+                    position: relative;
+                    top: 40px;
+                    width: 100%;
+                }
+
+                #buttons {
+                    padding: 0 0 5px 0;
+                    float: right;
+                }
+
+                #buttons a {
+                    text-align: center;
+                    display: block;
+                    font-size: 30px;
+                    float: left;
+                    outline: 0;
+                    margin: 0 60px;
+                    color: #0f0f10;
+                    text-decoration: none;
+                    padding: 0 30px 30px 0;
+                    width: 35px;
+                }
+
+                a#prev:hover, a#next:hover {
+                    color: #FFF;
+                    text-shadow: .5px 0px #b14943;
+                }
             }
 
-            #buttons a {
-                text-align:center;
-                display:block;
-                font-size:30px;
-                float:left;
-                outline:0;
-                margin:0 60px;
-                color:#0f0f10;
-                text-decoration:none;
-                padding:0 30px 30px 0;
-                width:35px;
-            }
-            a#prev:hover, a#next:hover {
-                color:#FFF;
-                text-shadow:.5px 0px #b14943;
+            @media only screen and (max-width: 549px) {
+                /* Styling for prev and next buttons */
+                .btn-bar {
+                    max-width: 100px;
+                    margin: 0 auto;
+                    display: block;
+                    position: relative;
+                    top: 40px;
+                    width: 100%;
+                }
+
+                #buttons {
+                    padding: 0 0 5px 0;
+                    float: right;
+                }
+
+                #buttons a {
+                    text-align: center;
+                    display: block;
+                    font-size: 30px;
+                    float: left;
+                    outline: 0;
+                    margin: 0 10px;
+                    color: #0f0f10;
+                    text-decoration: none;
+                    padding: 0 25px 30px 0;
+                    width: 20px;
+                }
+
+                a#prev:hover, a#next:hover {
+                    color: #FFF;
+                    text-shadow: .5px 0px #b14943;
+                }
             }
 
             .quote-phrase, .quote-author {
@@ -212,7 +288,8 @@
             }
 
 
-        </style>
+        </style>-->
+
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
         <script src="semantic/dist/components/visibility.js"></script>
@@ -223,180 +300,219 @@
         <script src="semantic/dist/components/modal.js"></script>
         <script src="semantic/dist/components/dimmer.js"></script>
         <script src="semantic/dist/components/embed.js"></script>
+        <script src="js/index.js"></script>
+
+        <script src="js/jquery_i18n/CLDRPluralRuleParser.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.messagestore.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.fallbacks.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.language.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.parser.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.emitter.js"></script>
+        <script src="js/jquery_i18n/jquery.i18n.emitter.bidi.js"></script>
 
 
 
         <script>
+            jQuery(document).ready(function() {
+                var update_texts = function() {
+                    $('body').i18n();
+                };
+
+
+                $.i18n().load({
+                    en: './language/en.json',
+                    it: './language/it.json'
+                }).done( function() { update_texts();
+                    console.log('done!');console.log($.i18n().locale);
+                    $('.lang-switch').click(function(e) {
+                        e.preventDefault();
+                        $.i18n().locale = $(this).data('locale');
+                        console.log($.i18n().locale);
+                        update_texts();
+                    });
+                });
+
+                $.i18n( {
+                    locale: 'it'
+                } );
+
+                //update_texts();
+            });
+        </script>
+
+        <!--
+        <script>
             $(document)
                 .ready(function() {
 
-                // fix menu when passed
-                $('.masthead')
-                    .visibility({
-                        once: false,
-                        onBottomPassed: function () {
-                            $('.fixed.menu').transition('fade in');
-                        },
-                        onBottomPassedReverse: function () {
-                            $('.fixed.menu').transition('fade out');
-                        }
-                    })
-                ;
-
-                // create sidebar and attach to menu open
-                $('.ui.sidebar')
-                    .sidebar('attach events', '.toc.item')
-                ;
-
-                $('.ui.menu .ui.dropdown').dropdown({
-                    on: 'hover'
-                });
-                $('.ui.menu a.item')
-                    .on('click', function() {
-                        $(this)
-                            .addClass('active')
-                            .siblings()
-                            .removeClass('active')
-                        ;
-                    })
-                ;
-
-                $( '.ui.huge.inverted.button' ).on('click', function() {
-                    $('.coupled.modal')
-                        .modal({
-                            allowMultiple: false
+                    // fix menu when passed
+                    $('.masthead')
+                        .visibility({
+                            once: false,
+                            onBottomPassed: function () {
+                                $('.fixed.menu').transition('fade in');
+                            },
+                            onBottomPassedReverse: function () {
+                                $('.fixed.menu').transition('fade out');
+                            }
                         })
                     ;
 
-                    // attach events to buttons
-                    $('.second.modal')
-                        .modal('attach events', '.first.modal .button')
+                    // create sidebar and attach to menu open
+                    $('.ui.sidebar')
+                        .sidebar('attach events', '.toc.item')
                     ;
-                    // show first now
-                    $('.first.modal')
-                        .modal('show')
-                    ;
-                });
 
-                $(' .ui.embed').embed();
-
-                $('#numPlayers').on('click', function(){
-                    $('#divPlayers').transition('fly right');
-                });
-
-                $('#numCoach').on('click', function(){
-                    $('#divCoach').transition('fly left')
-                    ;
-                });
-                $('ui.text.shape')
-                    .shape('set next side', '.second.side')
-                    .shape('flip up')
-                ;
-
-
-
-
-                //rotation speed and timer
-                var speed = 5000;
-
-                var run = setInterval(rotate, speed);
-                var slides = $('.slide');
-                var container = $('#slides ul');
-                var elm = container.find(':first-child').prop("tagName");
-                var item_width = container.width();
-                var previous = 'prev'; //id of previous button
-                var next = 'next'; //id of next button
-                slides.width(item_width); //set the slides to the correct pixel width
-                container.parent().width(item_width);
-                container.width(slides.length * item_width); //set the slides container to the correct total width
-                container.find(elm + ':first').before(container.find(elm + ':last'));
-                resetSlides();
-
-
-                //if user clicked on prev button
-
-                $('#buttons a').click(function (e) {
-                    //slide the item
-
-                    if (container.is(':animated')) {
-                        return false;
-                    }
-                    if (e.target.id === previous) {
-                        container.stop().animate({
-                            'left': 0
-                        }, 1500, function () {
-                            container.find(elm + ':first').before(container.find(elm + ':last'));
-                            resetSlides();
-                        });
-                    }
-
-                    if (e.target.id === next) {
-                        container.stop().animate({
-                            'left': item_width * -2
-                        }, 1500, function () {
-                            container.find(elm + ':last').after(container.find(elm + ':first'));
-                            resetSlides();
-                        });
-                    }
-
-                    //cancel the link behavior
-                    return false;
-
-                });
-
-                //if mouse hover, pause the auto rotation, otherwise rotate it
-                container.parent().mouseenter(function () {
-                    clearInterval(run);
-                }).mouseleave(function () {
-                    run = setInterval(rotate, speed);
-                });
-
-
-                function resetSlides() {
-                    //and adjust the container so current is in the frame
-                    container.css({
-                        'left': -1 * item_width
+                    $('.ui.menu .ui.dropdown').dropdown({
+                        on: 'hover'
                     });
-                }
-                //a simple function to click next link
-                //a timer will call this function, and the rotation will begin
+                    $('.ui.menu a.item')
+                        .on('click', function() {
+                            $(this)
+                                .addClass('active')
+                                .siblings()
+                                .removeClass('active')
+                            ;
+                        })
+                    ;
 
-                function rotate() {
-                    $('#next').click();
-                }
-/*
-                $('#followingMenu').on('click', function(event) {
-                    $(this).parent().find('a').removeClass('active');
-                    $(this).addClass('active');
-                });
-*/
-/*
-                $(window).on('scroll', function() {
-                    $('.scrolling').each(function() {
-                        if($(window).scrollTop() >= $(this).offset().top) {
-                            $('#followingMenu').removeClass('active');
-                            $('#followingMenu div a[href=#'+ $(this).attr('id') +']').addClass('active');
+                    $( '.ui.huge.inverted.button' ).on('click', function() {
+                        $('.coupled.modal')
+                            .modal({
+                                allowMultiple: false
+                            })
+                        ;
+
+                        // attach events to buttons
+                        $('.second.modal')
+                            .modal('attach events', '.first.modal .button')
+                        ;
+                        // show first now
+                        $('.first.modal')
+                            .modal('show')
+                        ;
+                    });
+
+                    $(' .ui.embed').embed();
+
+                    $('#numPlayers').on('click', function(){
+                        $('#divPlayers').transition('fly right');
+                    });
+
+                    $('#numCoach').on('click', function(){
+                        $('#divCoach').transition('fly left')
+                        ;
+                    });
+                    $('ui.text.shape')
+                        .shape('set next side', '.second.side')
+                        .shape('flip up')
+                    ;
+
+
+
+
+                    //rotation speed and timer
+                    var speed = 5000;
+
+                    var run = setInterval(rotate, speed);
+                    var slides = $('.slide');
+                    var container = $('#slides ul');
+                    var elm = container.find(':first-child').prop("tagName");
+                    var item_width = container.width();
+                    var previous = 'prev'; //id of previous button
+                    var next = 'next'; //id of next button
+                    slides.width(item_width); //set the slides to the correct pixel width
+                    container.parent().width(item_width);
+                    container.width(slides.length * item_width); //set the slides container to the correct total width
+                    container.find(elm + ':first').before(container.find(elm + ':last'));
+                    resetSlides();
+
+
+                    //if user clicked on prev button
+
+                    $('#buttons a').click(function (e) {
+                        //slide the item
+
+                        if (container.is(':animated')) {
+                            return false;
                         }
+                        if (e.target.id === previous) {
+                            container.stop().animate({
+                                'left': 0
+                            }, 1500, function () {
+                                container.find(elm + ':first').before(container.find(elm + ':last'));
+                                resetSlides();
+                            });
+                        }
+
+                        if (e.target.id === next) {
+                            container.stop().animate({
+                                'left': item_width * -2
+                            }, 1500, function () {
+                                container.find(elm + ':last').after(container.find(elm + ':first'));
+                                resetSlides();
+                            });
+                        }
+
+                        //cancel the link behavior
+                        return false;
+
                     });
-                });*/
 
-                $('.scrolling').visibility({
-                    /*
-                    onOnScreen: function(calculations){
-                        var id = $(this).attr("id");
-                        $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
-                    },*/
+                    //if mouse hover, pause the auto rotation, otherwise rotate it
+                    container.parent().mouseenter(function () {
+                        clearInterval(run);
+                    }).mouseleave(function () {
+                        run = setInterval(rotate, speed);
+                    });
 
 
-                    onOnScreen: function (calculations) {
-                        $('#followingMenu div a').removeClass('active');
-                        var id = $(this).attr("id");
-                        $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
-
+                    function resetSlides() {
+                        //and adjust the container so current is in the frame
+                        container.css({
+                            'left': -1 * item_width
+                        });
                     }
+                    //a simple function to click next link
+                    //a timer will call this function, and the rotation will begin
+
+                    function rotate() {
+                        $('#next').click();
+                    }
+                    /*
+                                    $('#followingMenu').on('click', function(event) {
+                                        $(this).parent().find('a').removeClass('active');
+                                        $(this).addClass('active');
+                                    });
+                    */
+                    /*
+                                        $(window).on('scroll', function() {
+                                            $('.scrolling').each(function() {
+                                                if($(window).scrollTop() >= $(this).offset().top) {
+                                                    $('#followingMenu').removeClass('active');
+                                                    $('#followingMenu div a[href=#'+ $(this).attr('id') +']').addClass('active');
+                                                }
+                                            });
+                                        });*/
+
+                    $('.scrolling').visibility({
+                        /*
+                        onOnScreen: function(calculations){
+                            var id = $(this).attr("id");
+                            $('#followingMenu div a[href=\\#'+ id +']').addClass('active');
+                        },*/
+
+
+                        onOnScreen: function (calculations) {
+                            $('#followingMenu div a').removeClass('active');
+                            var id = $(this).attr("id");
+                            $('#followingMenu div a[href=\\#' + id + ']').addClass('active');
+
+                        }
 
                     });
-            });
+                });
 
             $(window).on('scroll', function() {
 
@@ -419,42 +535,44 @@
             });
 
 
-        </script>
+        </script>-->
     </head>
     <body>
-
         <!-- Following Menu -->
         <div id="followingMenu" class="ui large top fixed hidden menu">
             <div class="ui container">
-                <a href="#home" class="active item follow" >Home</a>
-                <a href="#company" class="item follow"> Company</a>
-                <a href="#agents" class="item follow">Agents</a>
-                <a href="#statistics" class="item follow">Statistics</a>
-                <a class="item follow" href="#scoutingArea" style="color:black">Scouting Area</a>
+                <a href="#home" class="active item follow">Home</a>
+                <a data-i18n="company" href="#company" class="item follow company"></a>
+                <a data-i18n="agents" href="#agents" class="item follow"></a>
+                <a data-i18n="intermediary" href="#statistics" class="item follow"></a>
+                <a data-i18n="scout" class="item follow" href="#scoutingArea"></a>
                 <!--<a href="#players" class="item">Players</a>
                 <a href="#coach" class="item">Coach</a>-->
-                <a class="item follow" href="#services" style="color:black">Services</a>
-                <a class="item follow" href="#events" style="color:black">Events</a>
+                <a data-i18n="services" class="item follow" href="#services" ></a>
+                <a data-i18n="events" class="item follow" href="#events" ></a>
                 <a href="#news" class="item follow">News</a>
                 <a href="#partners" class="item follow">Partners</a>
-                <a href="#about" class="item follow">About Us</a>
+                <a data-i18n="about" href="#about" class="item follow"></a>
             </div>
         </div>
 
         <!-- Sidebar Menu -->
-        <div id="sideBar" class="ui vertical inverted sidebar menu">
+        <div class="ui vertical inverted sidebar menu">
             <a href="#home" class="active item">Home</a>
-            <a href="#company" class="item">Company</a>
-            <a class="item" href="#scoutingArea">Scouting Area</a>
+            <a data-i18n="company" href="#company" class="item company"></a>
+            <a data-i18n="agents" href="#agents" class="item"></a>
+            <a data-i18n="intermediary" href="#statistics" class="item"></a>
+            <a data-i18n="scout" class="item" href="#scoutingArea" ></a>
             <!--<a href="#players" class="item">Players</a>
             <a href="#coach" class="item">Coach</a>-->
-            <a class="item" href="#services" >Services</a>
-            <a class="item" href="#events" >Events</a>
+            <a data-i18n="services" class="item" href="#services" ></a>
+            <a data-i18n="events" class="item" href="#events" ></a>
             <a href="#news" class="item">News</a>
             <a href="#partners" class="item">Partners</a>
-            <a href="#about" class="item">About Us</a>
+            <a data-i18n="about" href="#about" class="item"></a>
         </div>
 
+        <!-- Modal, section that appears when the user touch on the Get Started button -->
         <div class="ui first coupled modal">
             <div class="header">
                 Do you want to join us?
@@ -490,40 +608,41 @@
 
         <div class="pusher">
 
+            <!-- Get Started/Home section -->
             <div id="home" class="ui inverted vertical masthead center aligned segment">
-                 <div class="ui container">
+                <div class="ui container">
                     <div class="ui large secondary inverted pointing menu">
                         <a class="toc item">
                             <i class="sidebar icon"></i>
                         </a>
-                        <a href="#home" class="active item">Home</a>
-                        <a href="#company" class="item">Company</a>
-                        <a href="#agents" class="item">Agents</a>
-                        <div class="ui dropdown item">
-                            Intermediary
+                        <a  href="#home" class="active item">Home</a>
+                        <a data-i18n="company" href="#company" class="item company"></a>
+                        <a data-i18n="agents" href="#agents" class="item"></a>
+                        <div  class="ui dropdown item">
+                            <a data-i18n="intermediary"></a>
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item" href="#statistics" style="color:black">Players</a>
-                                <a class="item" href="#statistics" style="color:black">Coach</a>
+                                <a data-i18n="players" class="item" href="#statistics" style="color:black"></a>
+                                <a data-i18n="coach" class="item" href="#statistics" style="color:black"></a>
                             </div>
                         </div>
-                        <a class="item" href="#scoutingArea" style="color:black">Scouting Area</a>
-                        <a href="#services" class="item">Services</a>
+                        <a data-i18n="scout" class="item" href="#scoutingArea" style="color:black"></a>
+                        <a data-i18n="services" href="#services" class="item"></a>
                         <div class="ui dropdown item">
                             News
                             <i class="dropdown icon"></i>
                             <div class="menu">
-                                <a class="item" href="#news" style="color:black">Our News</a>
-                                <a class="item" href="#events" style="color:black">Events</a>
+                                <a data-i18n="our_news" class="item" href="#news" style="color:black"></a>
+                                <a data-i18n="events" class="item" href="#events" style="color:black"></a>
                             </div>
                         </div>
                         <a href="#partners" class="item">Partners</a>
-                        <a href="#about" class="item">About Us</a>
+                        <a data-i18n="about" href="#about" class="item"></a>
                         <div class="item">
-                            <a href="#" ><i class="flag gb"></i></a>
+                            <a href="#" class="lang-switch" data-locale="en"><i class="flag gb"></i></a>
                         </div>
                         <div class="item">
-                            <a href="#" ><i class="flag it"></i></a>
+                            <a href="#" class="lang-switch" data-locale="it"><i class="flag it"></i></a>
                         </div>
                         <!--<a href="#statistic" class="item">Statistics</a>
                         <a href="#players" class="item">Players</a>
@@ -541,71 +660,68 @@
                             </button>-->
                         </div>
                     </div>
-                 </div>
+                </div>
 
                 <div class="ui text ">
                     <h1 class="ui inverted header">Best Soccer Management</h1>
-                    <h2 class="ui inverted header">Imagine an Agency</h2>
-                    <h3>That can realize your dreams</h3>
+                    <h2 data-i18n="imagine" class="ui inverted header">Immagina un'Agenzia</h2>
+                    <h3 data-i18n="dreams">Che può realizzare i tuoi sogni</h3>
                     <button class="ui huge inverted button" ><i class="gem outline icon"></i> Get Started   <i class="futbol icon"></i></button>
+                    <img class="ui small image centered" src="images/logo.png" />
                 </div>
             </div>
 
             <br >
             <br >
 
-
-            <div id="company" class="ui vertical stripe segment scrolling">
+            <!-- Company section -->
+            <div id="company" class="ui vertical stripe segment scrolling marginStyle" style="margin-left: 20%; margin-right: 20%">
                 <div class="ui text container">
-                    <h3 class="ui header">The Firm</h3>
-                        <p>The firm was created due to our passion for football but specially to offer a new concept
-                            related to football agents, who are too often not well seen. We, as footballers, have had
-                            bad experiences with our agents as well. These have had a significant negative impact on our careers.
-                        </p>
+                    <h3 data-i18n="firm"  class="ui header">Chi Siamo</h3>
+                    <p data-i18n="firm_description">Siamo una società di consulenza sportiva composta da quattro persone. L'idea di creare questa società nasce ovviamente
+                        dalla passione per il calcio ma soprattutto per cercare di cambiare quella che è l'opinione del procuratore nel mondo del pallone. Noi stessi abbiamo
+                        avuto in prima persona Brutte Esperienze Con i nostri agenti quando facevamo i giocatori. Esperienze che hanno segnato in negativo le nostre carriere.
+                        B.S.M ha come filosofia quella di mettere al centro gli interessi dei nostri assistiti prima ancora dei propri interessi personali per evitare di ripetere
+                        gli errori fatti con noi.
+                    </p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">What we Focus</a>
+                        <a data-i18n="focus" href="#">Cosa Facciamo</a>
                     </h4>
-                    <h3 class="ui header">Our mission</h3>
-                        <p>B.S.M want to be focused on acting well for the well-being of our clients. This comes before
-                            our personal interests, to avoid making the same mistakes that have killed our dreams in the past.
-                        </p>
+                    <h3 data-i18n="focus_title" class="ui header">Filosofia</h3>
+                    <p data-i18n="focus_description"> B.S.M ha come filosofia quella di mettere al centro gli interessi dei nostri assistiti prima ancora dei propri interessi
+                        personali per evitare di ripetere gli errori fatti con noi.
+                    </p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">How we Work</a>
+                        <a data-i18n="how_work" href="#">Come Lavoriamo</a>
                     </h4>
-                    <h3 class="ui header">Our work is also our greatest passion</h3>
-                        <p>Our way of working is based on being constantly present at football grounds and pitches.
-                            We want to meet the players as this step is pivotal to understand their needs and offer them
-                            a tailored service and make the most of our time and roles. We also built a strong network that
-                            brought us talent scouts in different countries such as Italy (whole country) Canada, Brazil, Cameron
-                            and Uganda, other than other contacts in Europe
-                        </p>
+                    <h3 data-i18n="how_work_title" class="ui header">Il Nostro Lavoro è anche la Nostra più Grande Passione</h3>
+                    <p data-i18n="how_work_description">Il nostro lavoro si basa sulla presenza continua e costante sui campi da calcio. Vedere e conoscere i giocatori in prima persona è fondamentale per svolgere
+                        al meglio questa professione. Possiamo contare su una rete scouting che copre tutto il territorio italiano oltre che osservatori in Canada, Australia, Brasile, Camerun e Uganda.
+                    </p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">About Clients</a>
+                        <a data-i18n="clients" href="#">I nostri Assistiti</a>
                     </h4>
-                    <h3 class="ui header">Who are our clients</h3>
-                        <p>Among our clients there are players who play in some of the best youth teams in Italy. Some of them,
-                            decided to be managed by B.S.M when they were already playing for professional teams. Others, instead,
-                            were playing in local teams and have been brought to the next level thanks to our passion and dedication.
-                            We scouted them, helped them to understand what their ambitions were and supported when hard time arose by being
-                            available for them whenever they needed us.
-                        </p>
+                    <h3 data-i18n="clients_title" class="ui header">Chi sono i Nostri Clienti</h3>
+                    <p data-i18n="clients_description">Abbiamo ragazzi che giocano nei migliori settori giovanili italiani. Alcuni di questi li abbiamo presi mentre giocavano gia in squadre professionistiche
+                        altri invece li abbiamo notati in squadre meno prestigiose. Li abbiamo curati, cresciuti, fatti migliorate e portati ad un livello superiore.
+                    </p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">Ethics</a>
+                        <a data-i18n="ethics" href="#">Etica</a>
                     </h4>
-                    <h3 class="ui header">Who we are looking for</h3>
-                        <p>At B.S.M are strict about players behaviour and attitude. To become part of our family, players, managers
-                            and partners must show respect, manners and politeness towards rivals, agents, teams and to the role they have.
-                            A player who does not succeed in showing these value simply cannot be part of B.S.M, no matter who he is or who he may become.
-                        </p>
+                    <h3 data-i18n="ethics_title" class="ui header">Chi stiamo cercando</h3>
+                    <p data-i18n="ethics_description">
+                        Una cosa a cui però teniamo molto è il rispetto e l'educazione verso il prossimo. Un giocatore che non ha queste caratteristiche non può fare parte di B.S.M
+                    </p>
                 </div>
             </div>
 
-            <div id="agents" class="ui vertical stripe quote segment scrolling" style="margin-left: 8%; margin-right: 8%">
+            <!-- Agents section -->
+            <div id="agents" class="ui vertical stripe quote segment scrolling marginStyle" style="margin-left: 20%; margin-right:20%">
                 <br>
                 <br>
-                <h1 align="center">Agents</h1>
+                <h1 data-i18n="agents" align="center">Collaboratori</h1>
                 <br>
-                <div class="ui equal width stackable internally celled grid centered" >
+                <div class="ui equal width stackable internally celled grid centered" style="margin-left: 16%; margin-right:16%">
                     <div class="ui link cards ">
                         <div class="card">
                             <div class="image">
@@ -614,10 +730,10 @@
                             <div class="content">
                                 <div class="header">Gianluigi Marraffa</div>
                                 <div class="meta">
-                                    <a>Agent</a>
+                                    <a data-i18n="agent">Procuratore</a>
                                 </div>
-                                <div class="description">
-                                    Born in July 1983. Former professional player for U.C. Sampdoria and some different teams in the Italian 3rd Division. I have also collected some caps for Italy’s Youth National team. I am a professional football agent (FIGC N˚:0986). In B.S.M I oversee transfers and consultancies for players both in Italy and abroad.
+                                <div data-i18n="marraffa" class="description">
+                                    Gianluigi Marraffa: nato l'8 Luglio 1983 ex calciatore professionista nelle file della Sampdoria e di altre squadre di Serie C. Vanta anche presenze nelle nazionali giovanili italiane. Procuratore sportivo iscritto al registro figc con numero di matricola .Per la società si occupa delle trattative di mercato e della consulenza ai giocatori nostri assistiti sia in Italia che all' estero
                                 </div>
                             </div>
                         </div>
@@ -628,10 +744,10 @@
                             <div class="content">
                                 <div class="header">Davide Stuto</div>
                                 <div class="meta">
-                                    <a>Agent</a>
+                                    <a data-i18n="agent">Agent</a>
                                 </div>
-                                <div class="description">
-                                    born in December 1989 in Genoa (Italy). I have played football until 2 years ago, when I quit to be completely involved in this project. I played in C.F.C Genoa (Serie A) until the so-called “Primavera”, the equivalent of a British “Team B”. My role in B.S.M is about looking after our foreign partners with the aim to maintain solid relationships other than developing new ones. The main objective of this is build bridges between people with the same passion and reinforce each other’s’ brands other than work together to offer a better service to players.
+                                <div data-i18n="stuto" class="description">
+                                    Davide Stuto: nato il 7 Dicembre 1989 a Genova. Ha giocato a calcio fino a due anni fa per dedicarmi poi a questo lavoro. Per la mia società mi occupo nello specifico dei rapporti con l'estero con lo scopo di sviluppare partnership con società straniere e curare lo sviluppo del Brand oltre che dell' intermediazione per le trattative di calciomercato.
                                 </div>
                             </div>
                         </div>
@@ -642,10 +758,10 @@
                             <div class="content">
                                 <div class="header">Alessio Baronchelli</div>
                                 <div class="meta">
-                                    <a>Agent</a>
+                                    <a data-i18n="agent">Agent</a>
                                 </div>
-                                <div class="description">
-                                    Born in 1983. Former professional players with some caps in the Italian 3rd Division. In B.S.M my role is related to the financial management of the firm’s budget and profit as well as players’ salaries. Moreover, I am actively involved in the negotiations and the football management side.
+                                <div data-i18n="baronchelli" class="description">
+
                                 </div>
                             </div>
                         </div>
@@ -656,80 +772,82 @@
                             <div class="content">
                                 <div class="header">Gianmarco Ceresa</div>
                                 <div class="meta">
-                                    <a>Social Media Marketing and communication executive</a>
+                                    <a data-i18n="marketing">Social Media Marketing and communication executive</a>
                                 </div>
-                                <div class="description">
-                                    born in 1990 in Turin. Expert in International Marketing and Communication. I have achieved a Master at the University of Surrey (Grade: Distinction) and I have previous experience in Administration and Direct and Digital Marketing for a financial corporation in London. In B.S.M I am looking after the marketing plan for an Italian Serie A clubs that wants to expand to China. On top of that, I manage the social media page and look after relationships in the UK.
+                                <div data-i18n="ceresa" class="description">
+                                    Ceresa Gianmarco nato a Biella il 25 Novembre nel 19990 esperto di marketing in mercati internazionali e laureatosi con il massimo dei voti in una delle più prestigiose università del Regno Unito per quanto riguarda il progetto B.S.M di espansione del brand in Cina per conto di una società della serie A italiana.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            <br>
+                <br>
             </div>
 
+            <!-- Statistics section -->
             <div id="statistics"  class="ui vertical stripe quote segment scrolling" style="height: 50%;width: 50%; margin: auto">
                 <br>
                 <br>
                 <br>
-                <h1 align="center">Statistics</h1>
-                <h4 align="center">BSM in numbers:</h4>
+                <br>
+                <h1 data-i18n="intermediary" align="center">Intermediari</h1>
+                <h4 data-i18n="statistics" align="center">BSM in numeri:</h4>
                 <div class="ui center aligned basic segment" style="margin: auto">
                     <div class="ui statistics" style="margin: auto">
                         <div id="numPlayers" class="green statistic" data-tooltip="Click here to see all our players" data-position="left center" style="margin: auto">
                             <div class="value">
                                 24
                             </div>
-                            <div class="label">
-                                Players
+                            <div data-i18n="players" class="label">
+                                Giocatori
                             </div>
                         </div>
                     </div>
-                    <div class="ui horizontal divider">
-                        And
+                    <div data-i18n="and" class="ui horizontal divider">
+                        E
                     </div>
                     <div class="ui statistics" style="margin: auto">
                         <div id="numCoach" class="green statistic" data-tooltip="Click here to see all our coach" data-position="left center" style="margin: auto">
                             <div class="value">
                                 1
                             </div>
-                            <div class="label">
-                                Coach
+                            <div data-i18n="coach" class="label">
+                                Allenatori
                             </div>
                         </div>
                     </div>
                 </div>
-                <h4>Touch the statistic to see details!!</h4>
+                <h4 data-i18n="touch">Tocca le statistiche per vedere i dettagli!!</h4>
             </div>
 
+            <!-- Players section -->
             <div id="divPlayers" class="ui vertical stripe quote segment hidden " >
                 <br>
-                <h1 align="center">Players</h1>
+                <h1 data-i18n="players" align="center">Giocatori</h1>
                 <br>
-
                 <div id="players" class="ui divided items " style="margin-left: 15%; margin-right: 15%">
 
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Alessandro_Donato.jpg" alt="Alessandro Donato">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Alessandro_Donato.jpg" alt="Alessandro Donato">
                         </div>
-                        <div class="content">
-                        <a class="header">Alessandro Donato</a>
-                        <div class="meta">
-                            <span class="cinema">U.C. Sampdoria</span>
-                        </div>
-                        <div class="description">
-                            <p>Football Striker, 2003 class</p>
-                        </div>
-                            <div class="extra">
-                                <div class="ui label"><i class="futbol icon"></i> Striker</div>
+                        <div class="content" style="margin-left: 1%">
+                            <a class="header">Alessandro Donato</a>
+                            <div class="meta">
+                                <span class="cinema">U.C. Sampdoria</span>
+                            </div>
+                            <div class="description">
+                                <p data-i18n="striker">Attaccante</p><p>classe 2003</p>
+                            </div>
+                            <div class="extra" >
+                                <div data-i18n="striker" class="ui label"><i class="futbol icon"></i> Striker</div>
                             </div>
                         </div>
                     </div>
 
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Alessandro_Ghiglia.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Alessandro_Ghiglia.jpg" alt="Alessandro Ghiglia" alt="Allessandro Ghiglia">
                         </div>
                         <div class="content">
                             <a class="header">Alessandro Ghiglia</a>
@@ -742,8 +860,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Alessandro_Orchi.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Alessandro_Orchi.jpg" alt="Alessandro Orchi" >
                         </div>
                         <div class="content">
                             <a class="header">Alessandro Orchi</a>
@@ -757,7 +875,7 @@
                     </div>
                     <div class="item">
                         <div class="image">
-                            <img src="images/Players/Alessandro_Rogora.jpg">
+                            <img class="imgResize" class="ui small image" src="images/Players/Alessandro_Rogora.jpg" alt="Alessandro Rogora">
                         </div>
                         <div class="content">
                             <a class="header">Alessandro Rogora</a>
@@ -770,8 +888,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Alessio_Arcidiacono.jpeg">
+                        <div class="ui small rounded image">
+                            <img  class="imgResize" src="images/Players/Alessio_Arcidiacono.jpeg" alt="Alessio Arcidiacono">
                         </div>
                         <div class="content">
                             <a class="header">Alessio Arcidiacono</a>
@@ -784,8 +902,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Andrea_Gallo.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Andrea_Gallo.jpg" alt="Andrea Gallo">
                         </div>
                         <div class="content">
                             <a class="header">Andrea Gallo</a>
@@ -798,8 +916,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Andrea_Tracanna.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Andrea_Tracanna.jpg" alt="Andrea Tracanna">
                         </div>
                         <div class="content">
                             <a class="header">Andrea Tracanna</a>
@@ -812,8 +930,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Antonio_DiPietro.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Antonio_DiPietro.jpeg" alt="Antonio Di Pietro">
                         </div>
                         <div class="content">
                             <a class="header">Antonio Di Pietro</a>
@@ -829,8 +947,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Antonio_Stellitano.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Antonio_Stellitano.jpg" alt="Antonio Stellitano">
                         </div>
                         <div class="content">
                             <a class="header">Antonio Stellitano</a>
@@ -843,8 +961,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Baldizzone.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Baldizzone.jpg" alt="Baldizzone">
                         </div>
                         <div class="content">
                             <a class="header">Baldizzone</a>
@@ -857,8 +975,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Christian_Nani.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Christian_Nani.jpg" alt="Christian Nani">
                         </div>
                         <div class="content">
                             <a class="header">Christian Nani</a>
@@ -871,8 +989,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Denis_Pasquino.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Denis_Pasquino.jpeg" alt="Denis Pasquino">
                         </div>
                         <div class="content">
                             <a class="header">Denis Pasquino</a>
@@ -885,8 +1003,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Elias_Spaltro.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Elias_Spaltro.jpg" alt="Elias Spaltro">
                         </div>
                         <div class="content">
                             <a class="header">Elis Spaltro</a>
@@ -899,8 +1017,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Federico_Aquino.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Federico_Aquino.jpg" alt="Federico Aquino">
                         </div>
                         <div class="content">
                             <a class="header">Federico Aquino</a>
@@ -913,8 +1031,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Federico_Brusacà.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Federico_Brusacà.jpeg" alt="Federico Brusacà">
                         </div>
                         <div class="content">
                             <a class="header">Federico Brusacà</a>
@@ -931,8 +1049,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Filippo_Scalea.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Filippo_Scalea.jpg" alt="Filippo Scalea">
                         </div>
                         <div class="content">
                             <a class="header">Filippo Scalea</a>
@@ -945,8 +1063,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Gianmarco_Cito.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Gianmarco_Cito.jpeg" alt="Gianmarco Cito">
                         </div>
                         <div class="content">
                             <a class="header">Gianmarco Cito</a>
@@ -959,8 +1077,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Guido_Bennati.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Guido_Bennati.jpeg" alt="Guido Bennati">
                         </div>
                         <div class="content">
                             <a class="header">Guido Bennati</a>
@@ -973,8 +1091,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Leonardo_Renner.jpeg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Leonardo_Renner.jpeg" alt="Leonardo Renner">
                         </div>
                         <div class="content">
                             <a class="header">Leonardo Renner</a>
@@ -991,8 +1109,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Lorenzo_Pietanesi.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Lorenzo_Pietanesi.jpg" alt="Lorenzo Pietanesi">
                         </div>
                         <div class="content">
                             <a class="header">Lorenzo Pietanesi</a>
@@ -1005,8 +1123,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Marco_Ventura.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Marco_Ventura.jpg" alt="Marco Ventura">
                         </div>
                         <div class="content">
                             <a class="header">Marco Ventura</a>
@@ -1019,8 +1137,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Martino_Daniele.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Martino_Daniele.jpg" alt="Martino Michele">
                         </div>
                         <div class="content">
                             <a class="header">Martino Daniele</a>
@@ -1033,8 +1151,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/Massimiliano_Tabbi.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/Massimiliano_Tabbi.jpg" alt="Massimiliano Tabbi">
                         </div>
                         <div class="content">
                             <a class="header">Massimiliano Tabbi</a>
@@ -1047,8 +1165,8 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Players/PauloDelBianco.jpg">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Players/PauloDelBianco.jpg" alt="Paulo Del Bianco">
                         </div>
                         <div class="content">
                             <a class="header">Paulo Del Bianco</a>
@@ -1060,17 +1178,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="ui buttons">
+                        <a class="buttonSmallScreen" href="#statistics"><button class="ui inverted green button" data-i18n="upStatistics" >Torna alle statistiche</button></a>
+                        <a class="buttonSmallScreen" href="#statistics"><button id="closePlayers" class="ui inverted green button" data-i18n="close_section" >Chiudi sezione</button></a>
+                    </div>
+                    <br>
                 </div>
             </div>
 
+            <!-- Coach section -->
             <div id="divCoach" class="ui vertical stripe quote segment hidden ">
                 <br>
-                <h1  align="center">Coach</h1>
+                <h1 data-i18n="coach" align="center">Allenatori</h1>
                 <br>
                 <div class="ui divided items" style="margin-left: 15%; margin-right: 15%">
                     <div class="item">
-                        <div class="image">
-                            <img src="images/Coach/Gabriele_Gervasi_mister.jpg"  alt="Gabriele Gervasi" style="height: 70%; width: 100%">
+                        <div class="ui small rounded image">
+                            <img class="imgResize" src="images/Coach/Gabriele_Gervasi_mister.jpg"  alt="Gabriele Gervasi" style="height: 70%; width: 100%">
                         </div>
                         <div class="content">
                             <a class="header">Gabriele Gervasi</a>
@@ -1078,27 +1202,33 @@
                                 <span class="cinema">Jiangsu Suning Football Club</span>
                             </div>
                             <div class="description">
-                                <p>Coach of the Jiangsu Suning U15 sector.</p>
+                                <p data-i18n="coach2">Coach</p><p> , Jiangsu Suning U15.</p>
                             </div>
                             <div class="extra">
-                                <div class="ui label"><i class="futbol icon"></i>Coach</div>
-                                <div class="ui label"><i class="futbol icon"></i>youth sector</div>
+                                <div data-i18n="coach2" class="ui label"><i class="futbol icon"></i>Allenatore</div>
+                                <div data-i18n="youth_sector" class="ui label"><i class="futbol icon"></i>Settore Giovanile</div>
                             </div>
                         </div>
                     </div>
+                    <div class="ui buttons">
+                        <a class="buttonSmallScreen" href="#statistics"><button class="ui inverted green button" data-i18n="upStatistics" >Torna alle statistiche</button></a>
+                        <a class="buttonSmallScreen" href="#statistics"><button id="closeCoach" class="ui inverted green button" data-i18n="close_section" >Chiudi sezione</button></a>
+                    </div>
+                    <br>
                 </div>
             </div>
 
-            <div id="scoutingArea" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
-                <h1 align="center">Scouting Area</h1>
+            <!-- Scouting section -->
+            <div  id="scoutingArea" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
+                <h1 data-i18n="scout" align="center">Area Scout</h1>
                 <br>
                 <div class="ui cards">
                     <div class="card">
                         <div class="content">
                             <div class="header">Luciano Mendez</div>
                             <div class="meta">Scout</div>
-                            <div class="description">
-                                Luciano Mendez is the scout manager for the South America area
+                            <div data-i18n="mendez" class="description">
+                                Luciano Mendez, responsabile Scouting per il Sud America.
                             </div>
                         </div>
                     </div>
@@ -1106,75 +1236,78 @@
                         <div class="content">
                             <div class="header">Roger Knem</div>
                             <div class="meta">Scout</div>
-                            <div class="description">
-                                Roger Knem is the scout manager for the South Africa area.
+                            <div data-i18n="knem" class="description">
+                                Roger Knem, responsabile Scouting per il Sud Africa
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="content">
-                            <div class="header">Join Us!!</div>
+                            <div data-i18n="scout_join1" class="header">Collabora con Noi!</div>
                             <div class="meta">Scout</div>
                             <div class="description">
-                                <a href="#about">Do you want to become a scout? Contact us!!</a>
+                                <a data-i18n="scout_join2" href="#about">Vuoi diventare uno scout? Contattaci!</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="services" class="ui vertical stripe segment scrolling" >
+            <!-- Services section -->
+            <div id="services" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
                 <div class="ui text container">
-                    <h3 align="center">Services</h3>
+                    <h3 data-i18n="services" align="center">Servizi</h3>
                 </div>
                 <br>
                 <div class="ui text container">
-                    <h2 class="ui header">Social Insurance Support</h2>
-                    <p>B.S.M relies on external consultants to manage all that regarding the Social Insurance of own athletes.</p>
+                    <h2 data-i18n="legislation" class="ui header">Supporto Previdenziale</h2>
+                    <p data-i18n="legislation_description">B.S.M si avvale di consulenti esterni per gestire tuto quello che riguarda la previdenza sociale dei propri assistiti.</p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">Tax Authorities</a>
+                        <a data-i18n="tax" href="#services">Assistenza Fiscale</a>
                     </h4>
-                    <h2 class="ui header">Fiscal Support</h2>
-                    <p>We relies on external consultants to manage thee TAX AREA of own athletes including investments.</p>
+                    <h2 data-i18n="fiscal_support" class="ui header">Supporto Fiscale</h2>
+                    <p data-i18n="fiscal_support_description">B.S.M si avvale di consulenti esterni per gestire tuto quello che riguarda l'area fiscale dei propri atleti, investimenti finanziari compresi.</p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">Legal Business</a>
+                        <a data-i18n="legal" href="#services">Affari legali</a>
                     </h4>
-                    <h2 class="ui header">Legal Support</h2>
-                    <p>Using the collaboration of the law firm Lo Cigno, B.S.M. offers legal advice to its clients.</p>
+                    <h2 data-i18n="legal_support" class="ui header">Supporto Legale</h2>
+                    <p data-i18n="legal_support_description">Avvalendosi della collaborazione dello Studio legale Lo Cigno, B.S.M offre ai propri assistiti diversi tipi di consulenze legali</p>
                     <h4 class="ui horizontal header divider">
-                        <a href="#">Imagine Management</a>
+                        <a data-i18n="image" href="#">Diritti d'Immagine</a>
                     </h4>
-                    <h2 class="ui header">Marketing & Digital PR</h2>
-                    <p>Having a professional of the sector within us, B.S.M. develops a series of initiatives fitting the acquisition of the image of their owners through the management of social profile, the creation of internet sites and the search for new sponsors</p>
+                    <h2  class="ui header">Marketing & Digital PR</h2>
+                    <p data-i18n="image_description">Avendo al proprio interno un professionista del settore. B.S.M sviluppa una serie di iniziative volte all'accrescimento del''imagine dei propri assistiti, anche tramite la gestione dei profili sociale, la creazione di siti internat e la ricerca di Sponsor.</p>
                 </div>
             </div>
 
+            <!-- Events section -->
             <div id="events" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
-                <h1 align="center">Events</h1>
+                <h1 data-i18n="events" align="center">Eventi</h1>
                 <div class="ui two column grid">
                     <div class="column">
                         <div class="ui raised segment">
-                            <a class="ui red ribbon label">Courses</a>
-                            <span>Sports Procurator courses</span>
+                            <a data-i18n="courses" class="ui red ribbon label">Corsi</a>
+                            <span data-i18n="proc_course">Corsi da Procuratore Sportivo</span>
                             <p>The next course...</p>
-                            <a class="ui red ribbon label">Courses</a>
-                            <span>Sport Observer Courses</span>
+                            <a data-i18n="courses" class="ui red ribbon label">Corsi</a>
+                            <span data-i18n="obs_course">Corsi da Osservatore Sportivo</span>
                             <p>The next course...</p>
                         </div>
                     </div>
                     <div class="column">
-                        <div class="ui segment">
-                            <a class="ui blue right ribbon label">Stage</a>
-                            <span>Players stage</span>
+                        <div class="ui reised segment">
+                            <a class="ui blue ribbon label">Stage</a>
+                            <span data-i18n="players_stage">Stage per calciatori</span>
                             <p>Players stage...</p>
-                            <a class="ui green right ribbon label">Other Events</a>
-                            <span>Other B.S.M. Events</span>
+                            <a data-i18n="other_events" class="ui green ribbon label">Altri Eventi</a>
+                            <span data-i18n="other_ev_description">Altri eventi organizzati da B:S:M</span>
                             <p>Other Events...</p>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- News section -->
             <div id="news" class="ui vertical stripe segment scrolling" style="margin-left: 20%;margin-right: 20%">
                 <h1 align="center">News</h1>
                 <div id="carousel">
@@ -1221,12 +1354,14 @@
                 </div>
             </div>
 
+            <!-- Partners section -->
             <div id="partners" class="ui vertical stripe segment scrolling" style="margin-left: 20%; margin-right: 20%">
                 <h1 align="center">Partners</h1>
+                <br>
                 <div class="ui link cards">
                     <div class="ui card">
-                        <a class="image" href="http://gallacticos.co.uk/">
-                            <img src="images/Partners/gallacticos.jpg" >
+                        <a class="ui image" href="http://gallacticos.co.uk/">
+                            <img  src="images/Partners/gallacticos.jpg" >
                         </a>
                         <div class="content">
                             <a class="header" href="http://gallacticos.co.uk/">Gallacticos Personal Promotion Ltd</a>
@@ -1236,8 +1371,8 @@
                         </div>
                     </div>
                     <div class="ui card">
-                        <a class="image" href="http://www.calcioprofiler.it/">
-                            <img src="images/Partners/pippo.svg" >
+                        <a class="ui image" href="http://www.calcioprofiler.it/">
+                            <img class="ui image" src="images/Partners/calcio_profiler2.jpg" >
                         </a>
                         <div class="content">
                             <a class="header" href="http://www.calcioprofiler.it/">Calcio Profiler</a>
@@ -1247,11 +1382,11 @@
                         </div>
                     </div>
                     <div class="ui card">
-                        <a class="image" href="http://www.calcioprofiler.it/">
-                            <img src="images/Agents/Davide_Stuto.jpg" >
+                        <a class="ui image" href="http://www.calcioprofiler.it/">
+                            <img class="ui medium image" src="images/Agents/Davide_Stuto.jpg" >
                         </a>
                         <div class="content">
-                            <a class="header" href="#">Join Us!!</a>
+                            <a data-i18n="join_us" class="header" href="#about">Unisciti a Noi!</a>
                             <div class="meta">
                                 <a>Partner</a>
                             </div>
@@ -1259,33 +1394,38 @@
                     </div>
                 </div>
             </div>
-            <br>
+
+            <!-- About section -->
             <div id="about" class="ui vertical stripe quote segment scrolling" style="margin-left: 20%; margin-right: 20%">
-                <h1 align="center">About Us</h1>
+                <br>
+                <br>
+                <br>
+                <br>
+                <h1 data-i18n="about" align="center">Informazioni</h1>
                 <div class="ui equal width stackable internally grid">
                     <div class="center aligned row">
                         <div class="column">
-                            <h3> Where to find us</h3>
+                            <h3 data-i18n="find_us"> Dove Trovarci</h3>
                             <div id="map"></div>
-                                <script>
-                                    function initMap() {
-                                        var uluru = {lat: 44.404177 , lng: 8.954745};
-                                        var map = new google.maps.Map(document.getElementById('map'), {
-                                            zoom: 15,
-                                            center: uluru
-                                        });
-                                        var marker = new google.maps.Marker({
-                                            position: uluru,
-                                            map: map
-                                        });
-                                    }
-                                </script>
-                                <script async defer
-                                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3AqCUHMphJyX6gBzqbFdlBxut_XIIQc&callback=initMap">
-                                </script>
+                            <script>
+                                function initMap() {
+                                    var uluru = {lat: 44.404177 , lng: 8.954745};
+                                    var map = new google.maps.Map(document.getElementById('map'), {
+                                        zoom: 15,
+                                        center: uluru
+                                    });
+                                    var marker = new google.maps.Marker({
+                                        position: uluru,
+                                        map: map
+                                    });
+                                }
+                            </script>
+                            <script async defer
+                                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3AqCUHMphJyX6gBzqbFdlBxut_XIIQc&callback=initMap">
+                            </script>
                         </div>
                         <div class=" left aligned column">
-                            <h3>Contact Us</h3>
+                            <h3 data-i18n="contact">Contattaci</h3>
                             <br>
                             <div class="ui list">
                                 <div class="item">
@@ -1336,48 +1476,29 @@
                 </div>
             </div>
 
-<!--
-                <h2 class="center">Where to find us</h2>
-                <div class="ui centered" id="map"></div>
-                <script>
-                    function initMap() {
-                        var uluru = {lat: 44.404177 , lng: 8.954745};
-                        var map = new google.maps.Map(document.getElementById('map'), {
-                            zoom: 15,
-                            center: uluru
-                        });
-                        var marker = new google.maps.Marker({
-                            position: uluru,
-                            map: map
-                        });
-                    }
-                </script>
-                <script async defer
-                        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDq3AqCUHMphJyX6gBzqbFdlBxut_XIIQc&callback=initMap">
-                </script>
-            </div>-->
-
-
+            <!-- Footer section -->
             <div class="ui inverted vertical footer segment">
                 <div class="ui container">
                     <div class="ui stackable inverted divided equal height stackable grid">
                         <div class="three wide column">
-                            <h4 class="ui inverted header">About</h4>
+                            <h4 data-i18n="about" class="ui inverted header">Chi siamo</h4>
                             <div class="ui inverted link list">
-                                <a href="#about" class="item">Contact Us</a>
-                                <a href="#map" class="item">How To find us</a>
+                                <a href="#home" class="item">Home</a>
+                                <a data-i18n="contact" href="#about" class="item">Contattaci</a>
+                                <a data-i18n="find_us" href="#map" class="item">Come trovarci</a>
                             </div>
                         </div>
                         <div class="three wide column">
-                            <h4 class="ui inverted header">Services</h4>
+                            <h4 data-i18n="services" class="ui inverted header">Servizi</h4>
                             <div class="ui inverted link list">
-                                <a href="#players" class="item">Players</a>
-                                <a href="#agents" class="item">Agent</a>
-                                <a href="#coach" class="item">Coach</a>
+                                <a data-i18n="players" href="#statistics" class="item">Giocatori</a>
+                                <a data-i18n="agents" href="#statistics" class="item">Agenti</a>
+                                <a data-i18n="coach" href="#statistics" class="item">Allenatori</a>
+                                <a data-i18n="services" href="#services" class="item">Servizi</a>
                             </div>
                         </div>
                         <div class="seven wide column">
-                            <h4 class="ui inverted header">Company information</h4>
+                            <h4 data-i18n="info" class="ui inverted header">Informazioni societarie</h4>
                             <p>Genova, via Caffa 11. Telefono 0123456789 P.IVA 012455686561</p>
                         </div>
                     </div>
