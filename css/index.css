@@ -1,0 +1,266 @@
+.hidden.menu {
+    display: none;
+}
+
+.masthead.segment {
+    min-height: 700px;
+    padding: 1em 0em;
+}
+.masthead .logo.item img {
+    margin-right: 1em;
+}
+.masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+}
+.masthead h1.ui.header {
+    margin-top: 3em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    font-weight: normal;
+}
+.masthead h2 {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+
+.ui.vertical.stripe {
+    padding: 8em 0em;
+}
+.ui.vertical.stripe h3 {
+    font-size: 2em;
+}
+.ui.vertical.stripe .button + h3,
+.ui.vertical.stripe p + h3 {
+    margin-top: 3em;
+}
+.ui.vertical.stripe .floated.image {
+    clear: both;
+}
+.ui.vertical.stripe p {
+    font-size: 1.33em;
+}
+.ui.vertical.stripe .horizontal.divider {
+    margin: 3em 0em;
+}
+
+.quote.stripe.segment {
+    padding: 0em;
+}
+.quote.stripe.segment .grid .column {
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+.footer.segment {
+    padding: 5em 0em;
+}
+
+.secondary.pointing.menu .toc.item {
+    display: none;
+}
+
+.imgResize{
+    max-width: 150px; !important;
+    max-height: 100px; !important;
+}
+
+@media only screen and (max-width: 700px) {
+    .ui.fixed.menu {
+        display: none !important;
+    }
+    .secondary.pointing.menu .item,
+    .secondary.pointing.menu .menu {
+        display: none;
+    }
+    .secondary.pointing.menu .toc.item {
+        display: block;
+    }
+    .masthead.segment {
+        min-height: 350px;
+    }
+    .masthead h1.ui.header {
+        font-size: 2em;
+        margin-top: 1.5em;
+    }
+    .masthead h2 {
+        margin-top: 0.5em;
+        font-size: 1.5em;
+    }
+}
+
+/*
+#carousel {
+    position: relative;
+    width:60%;
+    margin:0 auto;
+}
+*/
+#slides {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+#slides ul {
+    list-style: none;
+    width:100%;
+    height:250px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#slides li {
+    width:100%;
+    height:250px;
+    float:left;
+    text-align: center;
+    position: relative;
+    font-family:lato, sans-serif;
+}
+
+@media only screen and (min-width: 700px) {
+    /* Styling for prev and next buttons */
+    .btn-bar {
+        max-width: 346px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        top: 40px;
+        width: 100%;
+    }
+
+    #buttons {
+        padding: 0 0 5px 0;
+        float: right;
+    }
+
+    #buttons a {
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        float: left;
+        outline: 0;
+        margin: 0 60px;
+        color: #0f0f10;
+        text-decoration: none;
+        padding: 0 30px 30px 0;
+        width: 35px;
+    }
+
+    a#prev:hover, a#next:hover {
+        color: #FFF;
+        text-shadow: .5px 0px #b14943;
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    /* Styling for prev and next buttons */
+    .btn-bar {
+        max-width: 346px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        top: 40px;
+        width: 100%;
+    }
+
+    #buttons {
+        padding: 0 0 5px 0;
+        float: right;
+    }
+
+    #buttons a {
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        float: left;
+        outline: 0;
+        margin: 0 60px;
+        color: #0f0f10;
+        text-decoration: none;
+        padding: 0 30px 30px 0;
+        width: 35px;
+    }
+
+    a#prev:hover, a#next:hover {
+        color: #FFF;
+        text-shadow: .5px 0px #b14943;
+    }
+}
+
+@media only screen and (max-width: 549px) {
+    /* Styling for prev and next buttons */
+    .btn-bar {
+        max-width: 100px;
+        margin: 0 auto;
+        display: block;
+        position: relative;
+        top: 40px;
+        width: 100%;
+    }
+
+    #buttons {
+        padding: 0 0 5px 0;
+        float: right;
+    }
+
+    #buttons a {
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        float: left;
+        outline: 0;
+        margin: 0 10px;
+        color: #0f0f10;
+        text-decoration: none;
+        padding: 0 25px 30px 0;
+        width: 20px;
+    }
+
+    a#prev:hover, a#next:hover {
+        color: #FFF;
+        text-shadow: .5px 0px #b14943;
+    }
+
+}
+
+.quote-phrase, .quote-author {
+    font-weight:300;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5px 20px;
+    font-family:'Lato', Calibri, Arial, sans-serif;
+}
+
+.quote-phrase {
+    height: 200px;
+    font-size:24px;
+    color:#0f0f10;
+    font-style:italic;
+    text-shadow:.5px 0px #0f0f10;
+}
+
+.quote-marks {
+    font-size:30px;
+    padding:0 3px 3px;
+    position:inherit;
+}
+
+.quote-author {
+    font-style:normal;
+    font-size:20px;
+    color:#0f0f10;
+    font-weight:400;
+    height: 30px;
+}
+
+.quoteContainer, .authorContainer {
+    display: table;
+    width: 100%;
+}
+.buttonSmallScreen{
+    margin: 5px;
+}
+
